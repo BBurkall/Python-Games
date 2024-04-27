@@ -6,7 +6,8 @@ BLACK = (0, 0, 0)  # Define colors
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
-AMMO = 3  # Initial ammunition count
+AMMO = 5  # Maximum ammunition count
+SHOOTING = False
 
 pygame.init()  # Initialize Pygame
 pygame.mixer.init()  # Initialize sound mixer
@@ -42,7 +43,7 @@ def draw_bullets_bar(surface, x, y, ammo):
     border = pygame.Rect(x, y, BAR_LENGTH, BAR_HEIGHT)  # Create the border rectangle
     for i in range(ammo):
         # Create each bullet rectangle and draw them
-        bullet = pygame.Rect(x + (i * 20) + 4, y + 4, 12, BAR_HEIGHT * (0.8))
+        bullet = pygame.Rect(x + (i * 20) + 4, y + 4, 12, BAR_HEIGHT * 0.8)
         pygame.draw.rect(surface, RED, bullet)
 
     pygame.draw.rect(surface, WHITE, border, 2)  # Draw the border of the ammunition bar
@@ -91,6 +92,8 @@ class Player(pygame.sprite.Sprite):
             self.rect.top = 0
         if self.rect.bottom > HEIGHT:
             self.rect.bottom = HEIGHT
+        if SHOOTING:
+            self.shoot()
 
     # Method to shoot bullets
     def shoot(self):
@@ -236,17 +239,20 @@ while running:
 
         score = 0
 
-    clock.tick(60)
+    clock.tick(60) # Sets frame rate to 60 at max
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                player.shoot()
+                SHOOTING = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_SPACE:
+                SHOOTING = False
 
     all_sprites.update()
 
-    # Collision between meteor and bullets
+    # Check for collisions between bullets and meteors
     hits = pygame.sprite.groupcollide(meteor_list, bullets, True, True)
     for hit in hits:
         score += 100
