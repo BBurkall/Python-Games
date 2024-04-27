@@ -4,9 +4,10 @@ The classic game TicTacToe.
 
 ## How to play
 
-This is a two players game.
+This is a two player game.
 
-- Just click where you want to put your token
+- Just click where you want to put your token.
+- The first player to put three of their tokens in a row wins.
 
 To execute the game go inside the directory where the game is found and write:
 ```python

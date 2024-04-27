@@ -4,9 +4,10 @@ The classic game Connect 4.
 
 ## How to play
 
-This is a two players game.
+This is a two player game.
 
-- Just click in the column where you want to put your token
+- Just click in the column where you want to put your token (the space will be highlighted in your color)
+- The first player to get four of their color tokens in a row wins.
 
 To execute the game go inside the directory where the game is found and write:
 ```python

@@ -1,6 +1,6 @@
 # Snake
 
-The classic game Snake
+The classic game Snake.
 
 ## How to play
 

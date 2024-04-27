@@ -1,10 +1,10 @@
 # Pong
 
-This is my first game done with pygame.
+This is Edux1's first game done with pygame.
 
 ## How to play
 
-This is a two players game.
+This is a two player game.
 
 - Player 1 uses W and S to move
 - Player 2 uses UP KEY and DOWN KEY to move

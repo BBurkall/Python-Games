@@ -6,7 +6,7 @@ BLACK = (0, 0, 0)  # Define colors
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
-AMMO = 5  # Maximum ammunition count
+AMMO = 3  # Maximum ammunition count
 SHOOTING = False
 
 pygame.init()  # Initialize Pygame
